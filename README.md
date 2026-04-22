@@ -1,62 +1,68 @@
-﻿# ðŸš— Car Dealership Management System (Java Swing GUI & File I/O)
+# 🚗 Concesionario de Vehículos (Java Swing & Ficheros)
 
 <p align="center">
   <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" alt="Java" />
-  <img src="https://img.shields.io/badge/GUI-Java_Swing-007396?style=for-the-badge" alt="Swing GUI" />
-  <img src="https://img.shields.io/badge/Persistence-File_I%2FO-047857?style=for-the-badge" alt="File IO" />
-  <img src="https://img.shields.io/badge/Academic-1Âº_DAW_STUCOM-10B981?style=for-the-badge" alt="STUCOM" />
+  <img src="https://img.shields.io/badge/GUI-Java_Swing-007396?style=for-the-badge" alt="Java Swing" />
+  <img src="https://img.shields.io/badge/Persistence-File_I%2FO-E34F26?style=for-the-badge" alt="File I/O" />
+  <img src="https://img.shields.io/badge/Academic-1º_DAW_STUCOM-10B981?style=for-the-badge" alt="STUCOM" />
 </p>
 
-> ðŸŽ“ **Academic Project Notice:** This project was developed as an academic assignment for the **1st year of Web Application Development (DAW)** at **STUCOM Pelai** (Barcelona) within the Object-Oriented Programming and Data Access modules.
+> 🎓 **Proyecto Académico:** Desarrollado para la práctica de **Interfaces Gráficas y Persistencia de Ficheros (MP0485 RA8/RA9)** en **STUCOM Pelai** (Barcelona), 1º Grado Superior en Desarrollo de Aplicaciones Web (DAW).
 
 ---
 
-## ðŸ“Œ Overview / DescripciÃ³n General
+## Descripción del Proyecto
 
-### ðŸ‡¬ðŸ‡§ English
-Desktop vehicle inventory and dealership management system developed in **Java** using a graphical user interface built with **Java Swing (.form UI views)** and flat-file data persistence (rchivo.txt). It provides full CRUD operations for vehicles, enabling staff to search, insert, and delete records reliably.
-
-### ðŸ‡ªðŸ‡¸ EspaÃ±ol
-Sistema de escritorio para la gestiÃ³n de inventario y concesionario de vehÃ­culos desarrollado en **Java**, empleando una interfaz grÃ¡fica de usuario creada con **Java Swing** y persistencia de datos en ficheros de texto plano (rchivo.txt). Permite realizar operaciones CRUD sobre los vehÃ­culos: bÃºsqueda por matrÃ­cula, inserciÃ³n de nuevas unidades y eliminaciÃ³n.
+Aplicación de escritorio desarrollada en **Java** con interfaz gráfica **Java Swing** y persistencia en ficheros planos de texto (`archivo.txt`). Permite gestionar el parque automovilístico de un concesionario mediante formularios visuales para el alta, búsqueda, filtrado por matrícula y guardado persistente entre ejecuciones.
 
 ---
 
-## âœ¨ Key Features / CaracterÃ­sticas Principales
+## 📁 Arquitectura y Paquetes
 
-- ðŸ–¥ï¸ **Graphical User Interface (GUI):** Clean Swing views (insertarView, uscarView, eliminarView) designed with NetBeans GUI Builder.
-- ðŸ’¾ **File-Based Persistence (Fichero.java):** Custom file I/O layer reading and writing vehicle records safely to rchivo.txt.
-- ðŸ” **Vehicle Lookup & Validation:** Fast search by vehicle license plate with input validation and exception handling.
-- ðŸš˜ **Vehicle Data Model (Vehiculo.java):** Encapsulation of brand, model, registration date, and technical attributes.
-
----
-
-## ðŸ—ï¸ Architecture & Project Structure
-
-`
-src/main/java/com/mycompany/concesionario/
-â”œâ”€â”€ main.java            # Application entry point launching the main UI window
-â”œâ”€â”€ Concesionario.java   # Business logic and vehicle collection management
-â”œâ”€â”€ Vehiculo.java        # Vehicle entity definition with getters, setters, and validation
-â”œâ”€â”€ Fichero.java         # File persistence handler (file stream read/write)
-â”œâ”€â”€ insertarView.java    # Swing form view for registering new vehicles
-â”œâ”€â”€ buscarView.java      # Swing form view for searching vehicles by plate
-â””â”€â”€ eliminarView.java    # Swing form view for removing vehicles
-`
+```
+src/main/java/
+├── main/
+│   └── main.java                 # Punto de entrada de la aplicación Swing
+├── controller/
+│   └── Concesionario.java        # Controlador de negocio y gestión de la colección
+├── model/
+│   └── Vehiculo.java             # Entidad del modelo (matrícula, marca, modelo, etc.)
+├── persistencia/
+│   └── Fichero.java              # Lógica de I/O (BufferedReader, BufferedWriter)
+└── view/
+    ├── buscarView.java           # Formulario Swing generado con NetBeans GUI Builder
+    └── buscarView.form           # Definición XML del layout visual
+```
 
 ---
 
-## ðŸš€ How to Run / CÃ³mo Ejecutar
+## ✨ Características Principales
 
-1. **Requirements:** Java JDK 17+ and Apache Maven.
-2. **Compile and Run:**
-   `ash
-   mvn clean compile
-   mvn exec:java -Dexec.mainClass="com.mycompany.concesionario.main"
-   `
-   *Or open and run the project directly in NetBeans, IntelliJ IDEA, or Eclipse.*
+- 🖥️ **Interfaz Visual Intuitiva:** Formulario Swing con campos de texto, botones de acción y tabla/panel de visualización.
+- 💾 **Persistencia en Disco:** Lectura y escritura en `archivo.txt`, garantizando que ningún vehículo registrado se pierda al cerrar el programa.
+- 🔍 **Búsqueda Dinámica:** Búsqueda y filtrado instantáneo por número de matrícula.
+- 🛡️ **Validación de Datos:** Control de entradas vacías y formato de datos de entrada.
 
 ---
 
-## ðŸ“„ License
+## 🚀 Compilación y Ejecución
 
-Distributed under the **MIT License**.
+### Mediante Maven
+```bash
+# Compilar el proyecto
+mvn clean compile
+
+# Ejecutar la aplicación
+mvn exec:java -Dexec.mainClass="main.main"
+```
+
+### Mediante NetBeans IDE
+1. Abrir el proyecto en **NetBeans IDE**.
+2. Hacer clic derecho sobre el proyecto y seleccionar **Run**.
+3. Interactuar con la ventana gráfica `buscarView`.
+
+---
+
+## 👤 Autor
+
+**Ignacio Breñas Muñoz** — 1º DAW, STUCOM Pelai
